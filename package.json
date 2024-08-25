@@ -32,6 +32,7 @@
     "@nestjs/websockets": "^10.3.10",
     "bcrypt": "^5.1.1",
     "cache-manager": "^5.7.3",
+    "class-validator": "^0.14.1",
     "dotenv": "^16.4.5",
     "mongoose": "^8.5.2",
     "reflect-metadata": "^0.2.0",

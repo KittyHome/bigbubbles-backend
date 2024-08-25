@@ -14,6 +14,8 @@ import { JwtModule, JwtService } from '@nestjs/jwt';
 import { Reflector } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { PlaygroundModule } from './playground/playground.module';
+import { ProfileModule } from './profile/profile.module';
+import { CardModule } from './card/card.module';
 
 @Module({
   imports: [
@@ -36,6 +38,8 @@ import { PlaygroundModule } from './playground/playground.module';
     PatternsModule,
     SeederModule,
     PlaygroundModule,
+    ProfileModule,
+    CardModule,
   ],
   controllers: [AppController],
   providers: [

@@ -30,6 +30,10 @@ export class PlaygroundService {
     return await newPlayground.save();
   }
 
+  async getAll() {
+    return await this.playgroundModel.find().exec();
+  }
+
   async removeAll() {
     return await this.playgroundModel.deleteMany({});
   }
