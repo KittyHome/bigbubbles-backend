@@ -16,6 +16,8 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { PlaygroundModule } from './playground/playground.module';
 import { ProfileModule } from './profile/profile.module';
 import { CardModule } from './card/card.module';
+import { CacheModule } from './cache/cache.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -40,6 +42,8 @@ import { CardModule } from './card/card.module';
     PlaygroundModule,
     ProfileModule,
     CardModule,
+    CacheModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [
