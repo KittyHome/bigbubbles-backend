@@ -13,6 +13,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { Reflector } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { PlaygroundModule } from './playground/playground.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
     ColorsModule,
     PatternsModule,
     SeederModule,
+    PlaygroundModule,
   ],
   controllers: [AppController],
   providers: [

@@ -1,15 +1,16 @@
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
 import { createDefaultColors } from 'src/colors/color.factory';
-import { Color } from 'src/colors/colors.schema';
+import { ColorsService } from 'src/colors/colors.service';
+import { createDefaultPlaygrounds } from 'src/playground/playground.factory';
+import { PlaygroundService } from 'src/playground/playground.service';
 
 @Injectable()
 export class SeederService implements OnModuleInit {
   private readonly logger = new Logger(SeederService.name);
 
   constructor(
-    @InjectModel(Color.name) private readonly colorModel: Model<Color>,
+    private readonly colorsService: ColorsService,
+    private readonly playgroundService: PlaygroundService,
   ) {}
 
   async onModuleInit() {
@@ -18,17 +19,17 @@ export class SeederService implements OnModuleInit {
 
   async seed() {
     const seedColors = createDefaultColors();
+    await this.colorsService.removeAll();
+    Promise.all(
+      seedColors.map((seedColor) => this.colorsService.create(seedColor)),
+    );
 
-    try {
-      // Clear existing data
-      await this.colorModel.deleteMany({});
-      this.logger.log('Existing data cleared.');
-
-      // Insert seed data
-      await this.colorModel.insertMany(seedColors);
-      this.logger.log('Seed data inserted.');
-    } catch (error) {
-      this.logger.error('Error seeding data:', error);
-    }
+    const seedPlaygrounds = createDefaultPlaygrounds();
+    await this.playgroundService.removeAll();
+    Promise.all(
+      seedPlaygrounds.map((seedPlayground) =>
+        this.playgroundService.create(seedPlayground),
+      ),
+    );
   }
 }

@@ -1,6 +1,6 @@
-import { Color } from './colors.schema';
+import { CreateColorDto } from './dto/create-color.dto';
 
-export const createDefaultColors = (): Partial<Color>[] => {
+export const createDefaultColors = (): CreateColorDto[] => {
   return [
     { color: 'Red', code: '#FF0000', price: 0 },
     { color: 'Green', code: '#00FF00', price: 15 },
