@@ -22,11 +22,7 @@ export class CreateProfileDto {
 
   @IsOptional()
   @IsNumber()
-  saltsInBubble?: number;
-
-  @IsOptional()
-  @IsNumber()
-  saltsInFlask?: number;
+  saltsAmount?: number;
 
   @IsOptional()
   @IsNumber()

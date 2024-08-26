@@ -13,10 +13,7 @@ export class Profile extends Document {
   cardIds: MongooseSchema.Types.ObjectId[];
 
   @Prop()
-  saltsInBubble: number;
-
-  @Prop()
-  saltsInFlask: number;
+  saltsAmount: number;
 
   @Prop()
   waterAmount: number;
